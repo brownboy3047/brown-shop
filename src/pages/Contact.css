@@ -1,0 +1,38 @@
+.contact {
+  background-image: url(../assets/contact.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  min-height: 80vh;
+}
+
+.contact-info {
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contact-phone,
+.contact-address,
+.contact-time,
+.contact-email {
+  text-align: center;
+}
+
+.contact-phone h4,
+.contact-address h4,
+.contact-time h4,
+.contact-email h4 {
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 24px;
+  color: #1c1c1c;
+}
+
+.icon-phone i,
+.icon-address i,
+.icon-time i,
+.icon-email i {
+  font-size: 30px;
+  color: var(--color);
+}

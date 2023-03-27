@@ -1,0 +1,37 @@
+/* .drop-down {
+  display: flex;
+  justify-content: center;
+} */
+
+.drop-down-text {
+  position: relative;
+}
+
+.drop-down-text p {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.drop-down-text p:hover {
+  color: var(--color);
+}
+
+.drop-down-link {
+  position: absolute;
+  width: 150px;
+  top: 60px;
+  background-color: black;
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.drop-down-link li {
+  color: white;
+  margin: 10px 0 20px 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.drop-down-link li:hover {
+  color: var(--color);
+}

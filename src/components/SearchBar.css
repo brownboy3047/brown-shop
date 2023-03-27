@@ -1,0 +1,114 @@
+.search .search-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0 auto;
+  padding: 20px;
+}
+
+/** search group  menu*/
+.search-group .search-group-menu {
+  flex: 0.25;
+  margin-left: 30px;
+}
+
+.search-group-menu .search-group-menu-one {
+  background-color: var(--background);
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  position: relative;
+}
+
+.search-group .search-group-menu-one span {
+  margin-left: 10px;
+}
+
+.search-group-menu .search-group-menu-two {
+  /* border: 0.5px solid rgb(212, 209, 209); */
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+
+  position: absolute;
+  width: 17.8%;
+}
+
+.search-group-menu .search-group-menu-two li {
+  text-transform: uppercase;
+  margin-left: 20px;
+  color: #1c1c1c;
+  font-size: 16px;
+  line-height: 39px;
+  cursor: pointer;
+}
+
+/** search group bar*/
+.search-group .search-group-bar {
+  flex: 0.7;
+  border: 1px solid rgb(182, 179, 179);
+}
+
+.search-group .search-group-bar input {
+  padding: 14px;
+  width: 80%;
+  padding: 14px;
+  border: none;
+  outline: none;
+}
+
+.search-group .search-group-bar button {
+  width: 20%;
+  padding: 14px;
+  background-color: var(--background);
+  border: none;
+  outline: none;
+}
+
+/** search group call*/
+.search-group .search-group-call {
+  padding: 14px;
+  /* border: 2px solid black; */
+}
+
+.search-group .search-group-call i {
+  color: var(--background);
+}
+
+.search-group .search-group-call span {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+@media all and (width <= 768px) {
+  .search .search-group {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .search-group .search-group-menu {
+    width: 100%;
+    margin: 0;
+  }
+
+  .search-group-menu .search-group-menu-one {
+    text-align: left;
+  }
+
+  .search-group-menu .search-group-menu-two {
+    width: 95%;
+  }
+
+  .search-group .search-group-bar {
+    width: 100%;
+  }
+}

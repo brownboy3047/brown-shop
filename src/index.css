@@ -9,7 +9,6 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -17,6 +16,10 @@
   --color: #7fad39;
   --box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 main {

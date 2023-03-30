@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 // *hook
@@ -7,6 +8,7 @@ import { useFetch } from "../hooks/useFetch";
 import "./ShopDetails.css";
 
 const ShopDetails = () => {
+  const [count, setCount] = useState(1);
   const { id } = useParams();
 
   const url = "https://fakestoreapi.com/products/" + id;
@@ -29,6 +31,16 @@ const ShopDetails = () => {
               </div>
               <div className="shop-details-price">${product.price}</div>
               <p>{product.description}</p>
+
+              <div className="shop-details-cart">
+                <div className="shop-details-count">
+                  <button onClick={() => setCount(count - 1)}>-</button>
+                  <span>{count}</span>
+                  <button onClick={() => setCount(count + 1)}>+</button>
+                </div>
+
+                <button className="shop-details-add">Add to cart</button>
+              </div>
             </div>
           </div>
         )}

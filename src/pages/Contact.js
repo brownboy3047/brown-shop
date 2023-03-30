@@ -1,7 +1,11 @@
+import { useState } from "react";
+
 //* style
 import "./Contact.css";
 
 const Contact = () => {
+  const [value, setValue] = useState("");
+
   return (
     <div className="contact-container">
       <div className="contact"></div>
@@ -38,6 +42,37 @@ const Contact = () => {
           <h4>Email</h4>
           <p>brownboy3047@gmail.com</p>
         </div>
+      </div>
+
+      <div className="contact-form">
+        <h1>Leave Message</h1>
+
+        <form>
+          <input
+            className="form-input"
+            type="text"
+            placeholder="Your name"
+            autoComplete="off"
+            required
+          />
+          <input
+            className="form-input"
+            type="email"
+            placeholder="Your email"
+            autoComplete="off"
+            required
+          />
+          <textarea
+            className="form-input"
+            cols="10"
+            rows="10"
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+            required
+          />
+
+          <button className="form-btn">SEND MESSAGE</button>
+        </form>
       </div>
     </div>
   );

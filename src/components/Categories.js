@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
+
+//*Hook
 import { useFetch } from "../hooks/useFetch";
+import { useCart } from "../hooks/useCart";
 
 //*style
 import "./Categories.css";
@@ -9,6 +12,19 @@ const Categories = () => {
 
   const url = "https://fakestoreapi.com/products/category/" + department;
   const { data: products, error, loading } = useFetch(url);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = useCart();
+
+  const addCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
+
+  const removeCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+  };
 
   return (
     <div className="categories">
@@ -31,8 +47,20 @@ const Categories = () => {
                 <div className="cat-details-price">${product.price}</div>
                 <h5>Category: {product.category}</h5>
 
+                {/* Add to cart */}
                 <div className="cat-product-info-button">
-                  <button>Add to cart</button>
+                  {cart.some((prod) => prod.id === product.id) ? (
+                    <button
+                      onClick={() => removeCart(product)}
+                      className="remove-cart"
+                    >
+                      Remove from cart
+                    </button>
+                  ) : (
+                    <button onClick={() => addCart(product)} className="add">
+                      Add to cart
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

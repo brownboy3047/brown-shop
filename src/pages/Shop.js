@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-// *hook
+// * custom hook
 import { useFetch } from "../hooks/useFetch";
+import { useCart } from "../hooks/useCart";
 
 //* style
 import "./Shop.css";
@@ -9,6 +10,19 @@ import "./Shop.css";
 const Shop = () => {
   const url = "https://fakestoreapi.com/products";
   const { data: products, error, loading } = useFetch(url);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = useCart();
+
+  const addCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
+
+  const removeCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+  };
 
   return (
     <div className="shop">
@@ -30,7 +44,20 @@ const Shop = () => {
                   <Link to={`/shop/${product.id}`}>
                     <button>VIEW MORE</button>
                   </Link>
-                  <button>Add to cart</button>
+
+                  {/*Add to cart */}
+                  {cart.some((prod) => prod.id === product.id) ? (
+                    <button
+                      onClick={() => removeCart(product)}
+                      className="remove-cart"
+                    >
+                      Remove from cart
+                    </button>
+                  ) : (
+                    <button onClick={() => addCart(product)}>
+                      Add to cart
+                    </button>
+                  )}
                 </div>
               </div>
             </li>

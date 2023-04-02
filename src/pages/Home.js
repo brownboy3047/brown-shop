@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
+import { useCart } from "../hooks/useCart";
+
 //*style
 import "./Home.css";
-
-// import Top from "../assets/home-top.jpg";
 
 const Home = () => {
   return (

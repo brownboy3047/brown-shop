@@ -2,14 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 // *components
-// import Dropdown from "./Dropdown";
 import SearchBar from "./SearchBar";
 
 // *style
 import "./Header.css";
+import { useCart } from "../hooks/useCart";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const {
+    state: { cart },
+  } = useCart();
 
   return (
     <header className="header">
@@ -28,13 +31,15 @@ const Header = () => {
 
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/shop">SHOP</NavLink>
-          {/* <Dropdown /> */}
           <NavLink to="/contact">CONTACT</NavLink>
+          <NavLink to="/cart">CART</NavLink>
         </nav>
 
         <div className="head-cart">
-          <i className="bi bi-heart-fill"></i>
-          <i className="bi bi-cart-check-fill"></i>
+          <Link to="./cart">
+            <i className="bi bi-cart-check-fill"></i>
+          </Link>
+          <span>{cart.length}</span>
         </div>
 
         <div className="head-menu-icon" onClick={() => setShowMenu(!showMenu)}>

@@ -1,3 +1,11 @@
+/* .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+} */
+
 .head {
   display: flex;
   justify-content: space-between;
@@ -40,11 +48,20 @@
 
 .head .head-cart {
   flex: 0.1;
+  display: flex;
 }
 
 .head .head-cart i {
-  margin-left: 20px;
   font-size: 18px;
+  color: var(--color);
+  font-weight: 700;
+}
+
+.head .head-cart span {
+  color: #333;
+  font-weight: 700;
+  font-size: 12px;
+  align-self: flex-start;
 }
 
 .head .head-menu-icon i {
@@ -99,7 +116,7 @@
 
   .head .head-cart {
     display: flex;
-    gap: 20px;
+    /* gap: 20px; */
     align-self: center;
   }
 

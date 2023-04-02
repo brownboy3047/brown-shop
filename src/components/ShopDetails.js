@@ -1,18 +1,30 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-// *hook
+// * custom hook
 import { useFetch } from "../hooks/useFetch";
+import { useCart } from "../hooks/useCart";
 
 //*style
 import "./ShopDetails.css";
 
 const ShopDetails = () => {
-  const [count, setCount] = useState(1);
   const { id } = useParams();
 
   const url = "https://fakestoreapi.com/products/" + id;
   const { data: product, error, loading } = useFetch(url);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = useCart();
+
+  const addCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
+
+  const removeCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+  };
 
   return (
     <div className="shop-details-container">
@@ -33,13 +45,22 @@ const ShopDetails = () => {
               <p>{product.description}</p>
 
               <div className="shop-details-cart">
-                <div className="shop-details-count">
-                  <button onClick={() => setCount(count - 1)}>-</button>
-                  <span>{count}</span>
-                  <button onClick={() => setCount(count + 1)}>+</button>
-                </div>
-
-                <button className="shop-details-add">Add to cart</button>
+                {/*Add to cart */}
+                {cart.some((prod) => prod.id === product.id) ? (
+                  <button
+                    onClick={() => removeCart(product)}
+                    className="remove-cart"
+                  >
+                    Remove from cart
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => addCart(product)}
+                    className="shop-details-add"
+                  >
+                    Add to cart
+                  </button>
+                )}
               </div>
             </div>
           </div>

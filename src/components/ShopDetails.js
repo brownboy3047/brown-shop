@@ -33,7 +33,7 @@ const ShopDetails = () => {
       <div className="shop-details">
         {product && (
           <div className="shop-details-info">
-            <img src={product.image} alt=" product image" />
+            <img src={product.image} alt="" />
 
             <div className="shop-details-text">
               <h3>{product.title}</h3>

@@ -33,10 +33,6 @@ export const CartProvider = ({ children }) => {
     cart: [],
   });
 
-  //   const addCart = (add) => {
-  //     dispatch({ type: "ADD_TO_CART", payload: add });
-  //   };
-
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

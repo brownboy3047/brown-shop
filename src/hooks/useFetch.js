@@ -6,30 +6,41 @@ export const useFetch = (url) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const controller = new AbortController();
+    // const controller = new AbortController();
+    let ignore = false;
 
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(url, { signal: controller.signal });
+        const response = await fetch(url);
+
+        // { signal: controller.signal }
 
         if (!response.ok) {
-          throw new Error("data could not be fetch");
+          throw new Error("Data could not be fetch");
         }
 
         const result = await response.json();
-        setLoading(false);
-        setData(result);
-        setError(null);
+        // setLoading(false);
+
+        if (!ignore) {
+          setData(result);
+          setError(null);
+        }
       } catch (error) {
-        setLoading(false);
+        // setLoading(false);
         setError(error.message);
+        setData(null);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
 
+    //* clean up function
     // return () => controller.abort();
+    return () => (ignore = true);
   }, [url]);
 
   return { data, error, loading };

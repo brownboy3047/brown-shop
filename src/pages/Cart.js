@@ -29,37 +29,41 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="cart-container">
-        <ul>
-          {cart.map((product) => (
-            <li key={product.id}>
-              <h4>{product.title}</h4>
+        {cart.length > 0 ? (
+          <ul>
+            {cart.map((product) => (
+              <li key={product.id}>
+                <h4>{product.title}</h4>
 
-              {/* quantity of product */}
-              <div className="cart-container-count">
-                <select
-                  name="quantity"
-                  onChange={(e) =>
-                    dispatch({
-                      type: "CHANGE_CART_QTY",
-                      payload: { id: product.id, qty: e.target.value },
-                    })
-                  }
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <span className="cart-container-price">${product.price}</span>
-              <i
-                className="bi bi-trash3"
-                onClick={() => handleDelete(product)}
-              ></i>
-            </li>
-          ))}
-        </ul>
+                {/* quantity of product */}
+                <div className="cart-container-count">
+                  <select
+                    name="quantity"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "CHANGE_CART_QTY",
+                        payload: { id: product.id, qty: e.target.value },
+                      })
+                    }
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <span className="cart-container-price">${product.price}</span>
+                <i
+                  className="bi bi-trash3"
+                  onClick={() => handleDelete(product)}
+                ></i>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="cart-empty">Cart is empty</div>
+        )}
       </div>
 
       <div className="cart-summary">

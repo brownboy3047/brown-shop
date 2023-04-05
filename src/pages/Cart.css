@@ -46,6 +46,13 @@
   cursor: pointer;
 }
 
+.cart .cart-empty {
+  text-align: center;
+  color: #333;
+  font-size: 30px;
+  margin: 30px auto;
+}
+
 .cart .cart-summary {
   flex: 0.3;
   padding: 20px;

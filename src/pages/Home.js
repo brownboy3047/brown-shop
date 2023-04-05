@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 
-import { useCart } from "../hooks/useCart";
-
 //*style
 import "./Home.css";
 

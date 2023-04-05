@@ -34,7 +34,7 @@ const Categories = () => {
         {products &&
           products.map((product) => (
             <div key={product.id} className="cat-details-info">
-              <img src={product.image} alt="product image" />
+              <img src={product.image} alt="" />
 
               <div className="cat-details-text">
                 <h3>{product.title}</h3>

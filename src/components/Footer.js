@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer">
         <div className="footer-one">
-          <h1 className="footer-one-logo">OGANI</h1>
+          <h1 className="footer-one-logo">SHOPIE</h1>
 
-          <p>Address: 60-49 Road 11378 New York</p>
+          <p>Address: 60-49 Road 11378 Lagos</p>
           <p>Phone: +65 11.188.888</p>
           <p>Email: hireme@gmail.com</p>
         </div>

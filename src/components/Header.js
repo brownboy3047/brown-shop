@@ -18,7 +18,7 @@ const Header = () => {
     <header className="header">
       <div className="head">
         <Link to="/" className="head-logo">
-          <h1>OGANI</h1>
+          <h1>SHOPIE</h1>
         </Link>
 
         <nav className="head-nav" id={showMenu ? "head-nav-menu" : ""}>
